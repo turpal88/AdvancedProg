@@ -5,6 +5,6 @@ project(AdvancedProg LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(AdvancedProg Task1_2/Task2.cpp)
+add_executable(AdvancedProg Task1_3.cpp)
 
 

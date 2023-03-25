@@ -30,7 +30,7 @@ std::variant<int, std::string, std::vector<int>> get_variant() {
 int main()
 {
     std::variant a = get_variant();
-    if(std::holds_alternative<int>(a)) std::cout << std::get<int>(a) << std::endl;
+    if(std::holds_alternative<int>(a)) std::cout << std::get<int>(a) * 2 << std::endl;
     else if(std::holds_alternative<std::string>(a)) std::cout << std::get<std::string>(a) << std::endl;
     else {
         std::for_each(std::get<std::vector<int>>(a).begin(), std::get<std::vector<int>>(a).end(), [](int n) {std::cout << n << " ";});
