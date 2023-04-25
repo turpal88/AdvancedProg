@@ -28,6 +28,9 @@ public:
         if(index >= 0 && index <= actual_size - 1) return arr[index]; else throw std::out_of_range("Недопустимый индекс массива!");
     }
 
+    smart_array(const smart_array&) = delete;
+    smart_array& operator=(const smart_array&) = delete;
+
     ~smart_array(){
         delete [] arr;
     }

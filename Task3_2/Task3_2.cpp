@@ -25,26 +25,41 @@ public:
 
     }
 
-    int get_element(int index){
+    int get_element(int index) const{
         if(index >= 0 && index <= actual_size - 1) return arr[index]; else throw std::out_of_range("Недопустимый индекс массива!");
     }
 
     smart_array& operator=(smart_array& right){
+        if (&right != this) {
+            
+                int* increased_arr = new int[right.actual_size];
+                delete arr;
+                this->arr = increased_arr;
+                this->actual_size = right.actual_size;
+                this->logical_size = right.logical_size;
+                for (int i = 0; i < right.actual_size; i++) this->arr[i] = right.arr[i];
+            
 
-        if(this->actual_size < right.actual_size) throw std::out_of_range("Присваивание невозможно - у присваиваемого массива больше размер!");
-        else {
-            for(int i = 0; i < logical_size; i++) this->arr[i] = right.arr[i];
+            
         }
+        
         return *this;
 
     }
 
     void print_arr(){
-        for(int i = 0; i < actual_size; i++){
+        for(int i = 0; i < logical_size; i++){
             std::cout << arr[i];
-            if(i < actual_size - 1) std::cout << " "; else std::cout << std::endl;
+            if(i < logical_size - 1) std::cout << " "; else std::cout << std::endl;
         }
     }
+
+
+    smart_array(const smart_array& right) {
+        this->actual_size = right.actual_size;
+        this->logical_size = right.logical_size;
+    }
+    smart_array& operator=(const smart_array&) = delete;
 
     ~smart_array(){
         delete [] arr;
