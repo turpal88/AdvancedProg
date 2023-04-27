@@ -23,6 +23,9 @@ add_executable(AdvancedProg_1_3 Task1_3/Task1_3.cpp)
 add_executable(AdvancedProg_2_1 Task2_1/Task2_1.cpp)
 add_executable(AdvancedProg_3_1 Task3_1/Task3_1.cpp)
 add_executable(AdvancedProg_3_2 Task3_2/Task3_2.cpp)
+add_executable(AdvancedProg_5_1 Task5_1/Task5_1.cpp)
+add_executable(AdvancedProg_5_2 Task5_2/Task5_2.cpp)
+add_executable(AdvancedProg_5_3 Task5_3/Task5_3.cpp)
 
 
 
