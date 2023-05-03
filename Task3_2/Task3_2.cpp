@@ -58,8 +58,10 @@ public:
     smart_array(const smart_array& right) {
         this->actual_size = right.actual_size;
         this->logical_size = right.logical_size;
+        this->arr = new int[this->actual_size];
+        for(int i = 0; i < this->actual_size; i++) this->arr[i] = right.arr[i];
     }
-    smart_array& operator=(const smart_array&) = delete;
+   // smart_array& operator=(const smart_array&) = delete;
 
     ~smart_array(){
         delete [] arr;
@@ -82,6 +84,8 @@ int main(){
         new_array.print_arr();
         std::cout << std::endl;
 
+        smart_array arr3(5);
+              
         arr = new_array;
 
         arr.print_arr();
