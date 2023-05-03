@@ -1,46 +1,39 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <windows.h>
 #include <algorithm>
 
-class get_sum {
 
+class Functor {
 public:
-	get_sum(std::vector<int> Vec) : Vec(Vec) {}
-	int operator()() {
-		int sum = 0;
-		for (auto i : Vec) if(i % 3 == 0) sum += i;
+	Functor() : sum(0), count(0) {}
+	void operator()(int n) {
+		if (n % 3 == 0) sum += n;
+		count++;
+	}
+	int get_sum() {
 		return sum;
 	}
-
-private:
-	std::vector<int> Vec;
-	
-};
-
-class get_count {
-
-public:
-	get_count(std::vector<int> Vec) : Vec(Vec) {}
-	int operator()() {
-		int sum = 0;
-		for (auto i : Vec) if (i % 3 == 0) sum++;
-		return sum;
+	int get_count() {
+		return count;
 	}
-
 private:
-	std::vector<int> Vec;
+	int sum;
+	int count;
 
 };
+
+
+
 int main() {
 	std::vector<int> Vec;
 	for (int i = 1; i < 15; i++) Vec.push_back(i);
-	get_sum Get_sum(Vec);
-	get_count Get_count(Vec);
+	Functor f;
 	std::cout << "[IN]: ";
 	std::for_each(Vec.begin(), Vec.end(), [](int n) {std::cout << n << " "; });
 	std::cout << std::endl;
-	std::cout << "[OUT]: get_sum() = " << Get_sum() << std::endl;
-	std::cout << "[OUT]: get_count() = " << Get_count() << std::endl;
+	f = std::for_each(Vec.begin(), Vec.end(), f);
+	std::cout << "[OUT]: get_sum() = " << f.get_sum() << std::endl;
+	std::cout << "[OUT]: get_count() = " << f.get_count() << std::endl;
 	return 0;
 }

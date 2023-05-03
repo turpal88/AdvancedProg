@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 
 #include <windows.h>
 template<typename T>
@@ -9,6 +9,34 @@ public:
 		column_count = y;
 		arr = new T*[row_count];
 		for (int i = 0; i < row_count; i++) arr[i] = new T[column_count];
+	}
+
+	matrix& operator=(const matrix& right) { //перегрузка оператора присваивания
+		if (right != this) {
+			T** new_arr = new T * [right.row_count];
+			for (int i = 0; i < right.row_count; i++) new_arr[i] = new T[right.column_count];
+			for (int i = 0; i < this->row_count; i++) delete[] this->arr[i];
+			delete[] this->arr;
+			this->row_count = right.row_count;
+			this->column_count = right.column_count;
+			arr = new_arr;
+			for (int i = 0; i < this->row_count; i++) {
+				for (int j = 0; j < this->column_count; j++) {
+					arr[i][j] = right[i][j];
+				}
+			}
+			
+		}
+	}
+
+	matrix(const matrix& right) { //конструктор копирования
+		T** arr = new T * [right.row_count];
+		for (int i = 0; i < right.row_count; i++) arr[i] = new T[right.column_count];
+		for (int i = 0; i < this->row_count; i++) {
+			for (int j = 0; j < this->column_count; j++) {
+				arr[i][j] = right.arr[i][j];
+			}
+		}
 	}
 
 	T* operator[](int x){ //такая перегрузка оператора [] возвращает указатель на элемент типа T. Этот способ подсмотрел в гугле  и так и не понял как он работает.
@@ -42,7 +70,7 @@ int main() {
 			Matrix[i][j] = 7; //заполняется 7-ками
 		}
 	}
-
+	matrix<int> Matrix2(Matrix);
 	Matrix[0][3] = 8; //у любого элемента меняем значение
 	
 	for (int i = 0; i < 5; i++) { //снова матрицу на печать
