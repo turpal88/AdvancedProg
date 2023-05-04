@@ -28,6 +28,7 @@ int main() {
 		std::cout << e.what() << std::endl;
 	}
 	
+	MyVector<int> vec4(vec3);
 	std::cout << vec3.size() <<  std::endl;
 	std::cout << vec3.capacity() <<  std::endl;
 	return 0;

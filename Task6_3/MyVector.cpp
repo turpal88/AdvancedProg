@@ -15,6 +15,24 @@ public:
 	MyVector() : count(0), _capacity(1) {
 		arr = new T[_capacity];
 	}
+
+	MyVector& operator=(const MyVector& right) { // перегрузка оператора присваивания
+		this->count = right.count;
+		this->_capacity = right._capacity;
+		T* new_arr = new T[right._capacity];
+		delete[] this->arr;
+		for (int i = 0; i < _capacity; i++) new_arr[i] = right.arr[i];
+		this->arr = new_arr;
+		
+	}
+
+	MyVector(const MyVector& right) { // конструктор копирования
+		this->count = right.count;
+		this->_capacity = right._capacity;
+		this->arr = new T[right._capacity];
+		for (int i = 0; i < _capacity; i++) arr[i] = right.arr[i];
+		
+	}
 	
 	MyVector(std::initializer_list<T> l) : MyVector(l.size()) { //использовал объект std::initializer_list
 		unsigned int j = 0;
