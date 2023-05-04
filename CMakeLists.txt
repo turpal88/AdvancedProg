@@ -31,6 +31,9 @@ add_executable(AdvancedProg_6_2 Task6_2/Task6_2.cpp)
 add_executable(AdvancedProg_6_3 Task6_3/Task6_3.cpp)
 add_library(MyVector SHARED Task6_3/MyVector.cpp)
 target_link_libraries(AdvancedProg_6_3 MyVector)
+add_executable(AdvancedProg_7_1 Task7_1/Task7_1.cpp)
+add_executable(AdvancedProg_7_2 Task7_2/Task7_2.cpp)
+
 
 
 
