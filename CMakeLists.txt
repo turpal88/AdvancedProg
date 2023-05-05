@@ -28,11 +28,21 @@ add_executable(AdvancedProg_5_2 Task5_2/Task5_2.cpp)
 add_executable(AdvancedProg_5_3 Task5_3/Task5_3.cpp)
 add_executable(AdvancedProg_6_1 Task6_1/Task6_1.cpp)
 add_executable(AdvancedProg_6_2 Task6_2/Task6_2.cpp)
+
 add_executable(AdvancedProg_6_3 Task6_3/Task6_3.cpp)
 add_library(MyVector SHARED Task6_3/MyVector.cpp)
 target_link_libraries(AdvancedProg_6_3 MyVector)
+
 add_executable(AdvancedProg_7_1 Task7_1/Task7_1.cpp)
 add_executable(AdvancedProg_7_2 Task7_2/Task7_2.cpp)
+add_executable(AdvancedProg_8_1 Task8_1/Task8_1.cpp)
+add_executable(AdvancedProg_8_2 Task8_2/Task8_2.cpp)
+
+add_executable(AdvancedProg_8_3 Task8_3/Task8_3.cpp)
+add_library(MyUniquePtr SHARED Task8_3/MyUniquePtr.cpp)
+target_link_libraries(AdvancedProg_8_3 MyUniquePtr)
+
+
 
 
 
