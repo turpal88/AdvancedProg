@@ -42,6 +42,11 @@ add_executable(AdvancedProg_8_3 Task8_3/Task8_3.cpp)
 add_library(MyUniquePtr SHARED Task8_3/MyUniquePtr.cpp)
 target_link_libraries(AdvancedProg_8_3 MyUniquePtr)
 
+add_executable(AdvancedProg_9_1 Task9_1/Task9_1.cpp)
+add_executable(AdvancedProg_9_2 Task9_2/Task9_2.cpp)
+
+
+
 
 
 
