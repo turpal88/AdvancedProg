@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(AdvancedProg LANGUAGES CXX)
-
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -10,12 +10,13 @@ add_executable(AdvancedProg_4_1 Task4_1/Task4_1.cpp)
 add_executable(AdvancedProg_4_2 Task4_2/Task4_2.cpp)
 
 
-add_subdirectory(Catch2)
+add_subdirectory(Catch2 Catch2-build)
 add_executable(tests_4_1 Task4_1/test.cpp)
 target_link_libraries(tests_4_1 PRIVATE Catch2::Catch2)
 
 add_executable(tests_4_2 Task4_2/test.cpp)
 target_link_libraries(tests_4_2 PRIVATE Catch2::Catch2)
+
 
 add_executable(AdvancedProg_1_1 Task1_1/Task1.cpp)
 add_executable(AdvancedProg_1_2 Task1_2/Task2.cpp)

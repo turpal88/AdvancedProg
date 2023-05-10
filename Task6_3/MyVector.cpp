@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 /*
 #ifdef MYVECTOR_EXPORTS
 #define MYVECTOR_API __declspec(dllexport)
@@ -17,12 +18,16 @@ public:
 	}
 
 	MyVector& operator=(const MyVector& right) { // перегрузка оператора присваивания
-		this->count = right.count;
-		this->_capacity = right._capacity;
-		T* new_arr = new T[right._capacity];
-		delete[] this->arr;
-		for (int i = 0; i < _capacity; i++) new_arr[i] = right.arr[i];
-		this->arr = new_arr;
+		if (this != &right) {
+			this->count = right.count;
+			this->_capacity = right._capacity;
+			T* new_arr = new T[right._capacity];
+			delete[] this->arr;
+			for (int i = 0; i < _capacity; i++) new_arr[i] = right.arr[i];
+			this->arr = new_arr;
+		}
+		
+		return *this;
 		
 	}
 
@@ -42,7 +47,7 @@ public:
 		}
 	}
 	
-		MyVector(int count) {
+	MyVector(int count) {
 			if (count <= 0) throw std::out_of_range("Количество параметров вектора меньше или равно нулю!");
 			else {
 				this->count = count;
