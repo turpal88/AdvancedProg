@@ -7,7 +7,7 @@ public:
 		std::cout << "Создался объект класса MyUniquePtr" << std::endl;
 	}
 	
-	T operator*() {
+	T& operator*() {
 		std::cout << "Я объект класса MyUniquePtr и я вернул разыменованный объект" << std::endl;
 		return *obj;
 	}
