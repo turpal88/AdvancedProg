@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include "windows.h"
-#include "MyUniquePtr.cpp"
+#include "MyUniquePtr.hpp"
 //template<typename T>
 class MyClass {
 

@@ -1,4 +1,6 @@
-﻿template<typename T>
+﻿#pragma once
+
+template<typename T>
 class MyUniquePtr {
 
 public:
@@ -14,8 +16,10 @@ public:
 	MyUniquePtr& operator=(const MyUniquePtr& right) = delete;
 	MyUniquePtr(const MyUniquePtr& right) = delete;
 	T* release() {
+		T* temp = this->obj;
+		this->obj = nullptr;
 		std::cout << "Я объект класса MyUniquePtr и я вернул сырой указатель через свой метод release()" << std::endl;
-		return this->obj;
+		return temp;
 	}
 	~MyUniquePtr() {
 		delete[] this->obj;
